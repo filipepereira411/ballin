@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Acesso IP + Extra Meme</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f6f7; }
+        .box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; max-width: 500px; }
+        input[type="text"] { padding: 10px; width: 250px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; }
+        .btn { display: inline-block; padding: 10px 20px; margin: 5px 2px; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; text-decoration: none; }
+        .web { background-color: #2ecc71; }
+        .ssh { background-color: #34495e; }
+        .rdp { background-color: #2980b9; }
+        .meme-btn { background-color: #ff5500; display: block; text-align: center; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <!-- Bloco de Acesso Técnico ao IP -->
+    <div class="box">
+        <h3>Aceder a IP Manual</h3>
+        <input type="text" id="ipInput" placeholder="Ex: 192.168.1.50">
+        <br><br>
+        <button onclick="navegar('web')" class="btn web">Ir para Web</button>
+        <button onclick="navegar('ssh')" class="btn ssh">Ir para SSH</button>
+        <button onclick="navegar('rdp')" class="btn rdp">Ir para RDP</button>
+    </div>
+
+    <!-- Bloco de Música / Meme -->
+    <div class="box">
+        <h3>Meme Bónus: Forgis on the Jeep 🏎️</h3>
+        <!-- Reprodutor embutido do SoundCloud para ouvir a faixa fornecida -->
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
+            src="https://soundcloud.com">
+        </iframe>
+        <a href="https://soundcloud.com" target="_blank" class="btn meme-btn">Ver no SoundCloud</a>
+    </div>
+
+    <script>
+        function navegar(tipo) {
+            const ip = document.getElementById('ipInput').value.trim();
+            if (!ip) {
+                alert('Por favor, digite um IP válido.');
+                return;
+            }
+            if (tipo === 'web') window.open(`http://${ip}`, '_blank');
+            if (tipo === 'ssh') window.location.href = `ssh://${ip}`;
+            if (tipo === 'rdp') window.location.href = `rdp://${ip}`;
+        }
+    </script>
+
+</body>
+</html>
